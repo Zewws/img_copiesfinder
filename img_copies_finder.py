@@ -1,4 +1,4 @@
-import os, time
+import os
 from PIL import Image, ImageChops
 
 
@@ -27,7 +27,7 @@ else:
 for i in range(cp, len(pics)-1):
     with open('count.txt', 'w') as ctrlpnt:
         ctrlpnt.write(str(i))
-    a=time.time()
+    
     image_1=Image.open(dr+pics[i])
     w, h = image_1.size
     image_1 = image_1.resize([int(w/ks), int(h/ks)])
@@ -43,10 +43,8 @@ for i in range(cp, len(pics)-1):
             with open('copies.txt', 'a') as copys:
                 copys.write(pics[j]+'\n')
             print('Картинка '+pics[j]+' является копией '+pics[i])
-    print('Прошло '+str(time.time()-a)+' секунд')
-        
-print()
-print()
+            
+print('\n\n')
  
 with open('copies.txt', 'r') as copys:
     rdr=copys.read()
